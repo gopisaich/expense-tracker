@@ -76,7 +76,7 @@ int main() {
     httplib::Server server;
 
     server.set_default_headers({
-        {"Access-Control-Allow-Origin", "http://localhost:3000"},
+        {"Access-Control-Allow-Origin", "*"},
         {"Access-Control-Allow-Methods", "GET, POST, OPTIONS"},
         {"Access-Control-Allow-Headers", "Content-Type"}
     });
@@ -211,7 +211,10 @@ int main() {
         res.set_content(response, "application/json");
         res.status = 201;
     });
+    int port = 8080;
+    if (const char* p = std::getenv("PORT")) {
+        port = std::stoi(p);
+    }
 
-    cout << "Expense API running at http://localhost:8080\n";
-    server.listen("127.0.0.1", 8080);
+      server.listen("0.0.0.0", port);
 }
