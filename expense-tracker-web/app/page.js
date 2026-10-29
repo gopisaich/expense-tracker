@@ -96,7 +96,7 @@ async function handleAddExpense(event) {
       description: form.description,
     });
 
-    const response = await fetch("http://localhost:8080/api/expenses", {
+    const response = await fetch("https://expense-tracker-ebe7.onrender.com/api/expenses", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -118,7 +118,7 @@ async function handleAddExpense(event) {
     });
 
     const updatedResponse = await fetch(
-      "http://localhost:8080/api/expenses"
+      "https://expense-tracker-ebe7.onrender.com/api/expenses"
     );
     const updatedExpenses = await updatedResponse.json();
     setExpenses(updatedExpenses);
