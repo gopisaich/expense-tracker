@@ -33,7 +33,7 @@ const [saving, setSaving] = useState(false);
 const [formMessage, setFormMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/expenses")
+    fetch("https://expense-tracker-ebe7.onrender.com/api/expenses")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Could not load expenses");
